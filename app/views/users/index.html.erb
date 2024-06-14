@@ -1,0 +1,11 @@
+<h1>My Page</h1>
+
+<%= turbo_frame_tag 'page' do %>
+  <p>User: <%= @users.first[:name] %> (<%= @users.first[:id] %>)</p>
+
+  <p>
+    <%= link_to 'First page', users_path, data: { turbo_frame: 'page', turbo_action: 'advance' } %>
+    -
+    <%= link_to 'Next page', users_path(page: 'next'), data: { turbo_frame: 'page', turbo_action: 'advance' } %>
+  </p>
+<% end %>
